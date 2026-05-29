@@ -1,0 +1,244 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]: ralph
+    - generic [ref=e7]:
+      - generic [ref=e8]: projects
+      - generic [ref=e9]: no projects yet
+    - generic [ref=e10]:
+      - button "+ new project" [ref=e11] [cursor=pointer]
+      - button "GitHub" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: ⬡
+      - paragraph [ref=e16]: No agents running.
+      - paragraph [ref=e17]:
+        - text: Pick a project and hit
+        - strong [ref=e18]: run
+        - text: .
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - heading "GitHub" [level=2] [ref=e22]
+      - button "✕" [ref=e23] [cursor=pointer]
+    - generic [ref=e248]:
+      - generic [ref=e249]:
+        - img [ref=e250]
+        - generic [ref=e251]: jdc1898
+        - button "disconnect" [ref=e252] [cursor=pointer]
+      - generic [ref=e253]:
+        - generic [ref=e254]: watched repos
+        - generic [ref=e255]:
+          - generic [ref=e256]:
+            - generic [ref=e257]: LFT-Fiber/lft-workbench
+            - generic [ref=e258]: private
+            - button "watch" [ref=e259] [cursor=pointer]
+          - generic [ref=e260]:
+            - generic [ref=e261]: jdc1898/Lark
+            - generic [ref=e262]: private
+            - button "watch" [ref=e263] [cursor=pointer]
+          - generic [ref=e264]:
+            - generic [ref=e265]: Fullstack-LLC/Workbench-iConvergence
+            - generic [ref=e266]: private
+            - button "watch" [ref=e267] [cursor=pointer]
+          - generic [ref=e268]:
+            - generic [ref=e269]: LaravelDaily/FilamentExamples-Projects
+            - generic [ref=e270]: private
+            - button "watch" [ref=e271] [cursor=pointer]
+          - generic [ref=e272]:
+            - generic [ref=e273]: jdc1898/Foundry
+            - generic [ref=e274]: private
+            - button "watch" [ref=e275] [cursor=pointer]
+          - generic [ref=e276]:
+            - generic [ref=e277]: jdc1898/openclaw
+            - generic [ref=e278]: private
+            - button "watch" [ref=e279] [cursor=pointer]
+          - generic [ref=e280]:
+            - generic [ref=e281]: epixcz/FilamentExamples-Projects
+            - generic [ref=e282]: private
+            - button "watch" [ref=e283] [cursor=pointer]
+          - generic [ref=e284]:
+            - generic [ref=e285]: galegobr01/FilamentExamples-Projects
+            - generic [ref=e286]: private
+            - button "watch" [ref=e287] [cursor=pointer]
+          - generic [ref=e288]:
+            - generic [ref=e289]: jdc1898/Foundation
+            - generic [ref=e290]: private
+            - button "watch" [ref=e291] [cursor=pointer]
+          - generic [ref=e292]:
+            - generic [ref=e293]: livewire/screencast--data-tables
+            - generic [ref=e294]: private
+            - button "watch" [ref=e295] [cursor=pointer]
+          - generic [ref=e296]:
+            - generic [ref=e297]: jdc1898/flux
+            - button "watch" [ref=e298] [cursor=pointer]
+          - generic [ref=e299]:
+            - generic [ref=e300]: jdc1898/laravel-crm
+            - button "watch" [ref=e301] [cursor=pointer]
+          - generic [ref=e302]:
+            - generic [ref=e303]: jdc1898/flux-audio-track-proposal
+            - button "watch" [ref=e304] [cursor=pointer]
+          - generic [ref=e305]:
+            - generic [ref=e306]: jdc1898/iConvergence-workbench
+            - generic [ref=e307]: private
+            - button "watch" [ref=e308] [cursor=pointer]
+          - generic [ref=e309]:
+            - generic [ref=e310]: jdc1898/laravel-connectwise-commissions
+            - generic [ref=e311]: private
+            - button "watch" [ref=e312] [cursor=pointer]
+          - generic [ref=e313]:
+            - generic [ref=e314]: jdc1898/laravel-transcribe
+            - button "watch" [ref=e315] [cursor=pointer]
+          - generic [ref=e316]:
+            - generic [ref=e317]: jdc1898/laravel-streamone
+            - button "watch" [ref=e318] [cursor=pointer]
+          - generic [ref=e319]:
+            - generic [ref=e320]: jdc1898/laravel-rmm
+            - button "watch" [ref=e321] [cursor=pointer]
+          - generic [ref=e322]:
+            - generic [ref=e323]: jdc1898/laravel-mailman
+            - button "watch" [ref=e324] [cursor=pointer]
+          - generic [ref=e325]:
+            - generic [ref=e326]: jdc1898/laravel-itglue
+            - button "watch" [ref=e327] [cursor=pointer]
+          - generic [ref=e328]:
+            - generic [ref=e329]: jdc1898/laravel-frame
+            - button "watch" [ref=e330] [cursor=pointer]
+          - generic [ref=e331]:
+            - generic [ref=e332]: jdc1898/laravel-browser-automation
+            - button "watch" [ref=e333] [cursor=pointer]
+          - generic [ref=e334]:
+            - generic [ref=e335]: jdc1898/Timesheets
+            - button "watch" [ref=e336] [cursor=pointer]
+          - generic [ref=e337]:
+            - generic [ref=e338]: livewire/screencast--form-essentials
+            - generic [ref=e339]: private
+            - button "watch" [ref=e340] [cursor=pointer]
+          - generic [ref=e341]:
+            - generic [ref=e342]: jdc1898/OSXSetup
+            - generic [ref=e343]: private
+            - button "watch" [ref=e344] [cursor=pointer]
+          - generic [ref=e345]:
+            - generic [ref=e346]: jdc1898/StripeProductManager
+            - button "watch" [ref=e347] [cursor=pointer]
+          - generic [ref=e348]:
+            - generic [ref=e349]: jdc1898/Redbird
+            - button "watch" [ref=e350] [cursor=pointer]
+          - generic [ref=e351]:
+            - generic [ref=e352]: jdc1898/Minecraft
+            - generic [ref=e353]: private
+            - button "watch" [ref=e354] [cursor=pointer]
+          - generic [ref=e355]:
+            - generic [ref=e356]: jdc1898/novafieldcheckboxes
+            - button "watch" [ref=e357] [cursor=pointer]
+          - generic [ref=e358]:
+            - generic [ref=e359]: Fullstack-LLC/Workbench
+            - generic [ref=e360]: private
+            - button "watch" [ref=e361] [cursor=pointer]
+          - generic [ref=e362]:
+            - generic [ref=e363]: Fullstack-LLC/HomeIQ
+            - generic [ref=e364]: private
+            - button "watch" [ref=e365] [cursor=pointer]
+          - generic [ref=e366]:
+            - generic [ref=e367]: jdc1898/Timely
+            - generic [ref=e368]: private
+            - button "watch" [ref=e369] [cursor=pointer]
+          - generic [ref=e370]:
+            - generic [ref=e371]: jdc1898/StickEm
+            - generic [ref=e372]: private
+            - button "watch" [ref=e373] [cursor=pointer]
+          - generic [ref=e374]:
+            - generic [ref=e375]: jdc1898/Imua
+            - generic [ref=e376]: private
+            - button "watch" [ref=e377] [cursor=pointer]
+          - generic [ref=e378]:
+            - generic [ref=e379]: jdc1898/Dokan
+            - generic [ref=e380]: private
+            - button "watch" [ref=e381] [cursor=pointer]
+          - generic [ref=e382]:
+            - generic [ref=e383]: jdc1898/Trax
+            - generic [ref=e384]: private
+            - button "watch" [ref=e385] [cursor=pointer]
+          - generic [ref=e386]:
+            - generic [ref=e387]: jdc1898/QuickBooks
+            - button "watch" [ref=e388] [cursor=pointer]
+          - generic [ref=e389]:
+            - generic [ref=e390]: jdc1898/FullStack
+            - generic [ref=e391]: private
+            - button "watch" [ref=e392] [cursor=pointer]
+          - generic [ref=e393]:
+            - generic [ref=e394]: jdc1898/forge-docs
+            - button "watch" [ref=e395] [cursor=pointer]
+          - generic [ref=e396]:
+            - generic [ref=e397]: jdc1898/bouncer
+            - button "watch" [ref=e398] [cursor=pointer]
+          - generic [ref=e399]:
+            - generic [ref=e400]: jdc1898/Socialite
+            - generic [ref=e401]: private
+            - button "watch" [ref=e402] [cursor=pointer]
+          - generic [ref=e403]:
+            - generic [ref=e404]: jdc1898/Bedrock
+            - generic [ref=e405]: private
+            - button "watch" [ref=e406] [cursor=pointer]
+          - generic [ref=e407]:
+            - generic [ref=e408]: jdc1898/twilio
+            - generic [ref=e409]: private
+            - button "watch" [ref=e410] [cursor=pointer]
+          - generic [ref=e411]:
+            - generic [ref=e412]: jdc1898/Collective
+            - generic [ref=e413]: private
+            - button "watch" [ref=e414] [cursor=pointer]
+          - generic [ref=e415]:
+            - generic [ref=e416]: jdc1898/FSadmin
+            - generic [ref=e417]: private
+            - button "watch" [ref=e418] [cursor=pointer]
+          - generic [ref=e419]:
+            - generic [ref=e420]: jdc1898/neo
+            - generic [ref=e421]: private
+            - button "watch" [ref=e422] [cursor=pointer]
+          - generic [ref=e423]:
+            - generic [ref=e424]: jdc1898/Javelin
+            - generic [ref=e425]: private
+            - button "watch" [ref=e426] [cursor=pointer]
+          - generic [ref=e427]:
+            - generic [ref=e428]: jdc1898/Workspace
+            - generic [ref=e429]: private
+            - button "watch" [ref=e430] [cursor=pointer]
+          - generic [ref=e431]:
+            - generic [ref=e432]: jdc1898/workspaces
+            - generic [ref=e433]: private
+            - button "watch" [ref=e434] [cursor=pointer]
+          - generic [ref=e435]:
+            - generic [ref=e436]: jdc1898/Snitch
+            - generic [ref=e437]: private
+            - button "watch" [ref=e438] [cursor=pointer]
+          - generic [ref=e439]:
+            - generic [ref=e440]: jdc1898/EC2-PHP-Upgrade
+            - button "watch" [ref=e441] [cursor=pointer]
+          - generic [ref=e442]:
+            - generic [ref=e443]: jdc1898/InventoryTicketing
+            - generic [ref=e444]: private
+            - button "watch" [ref=e445] [cursor=pointer]
+          - generic [ref=e446]:
+            - generic [ref=e447]: jdc1898/CRM
+            - generic [ref=e448]: private
+            - button "watch" [ref=e449] [cursor=pointer]
+          - generic [ref=e450]:
+            - generic [ref=e451]: jdc1898/Scrutinizer
+            - generic [ref=e452]: private
+            - button "watch" [ref=e453] [cursor=pointer]
+          - generic [ref=e454]:
+            - generic [ref=e455]: jdc1898/Reminder
+            - generic [ref=e456]: private
+            - button "watch" [ref=e457] [cursor=pointer]
+          - generic [ref=e458]:
+            - generic [ref=e459]: jdc1898/Lyft
+            - generic [ref=e460]: private
+            - button "watch" [ref=e461] [cursor=pointer]
+          - generic [ref=e462]:
+            - generic [ref=e463]: vizzical/chatbot
+            - generic [ref=e464]: private
+            - button "watch" [ref=e465] [cursor=pointer]
+          - generic [ref=e466]:
+            - generic [ref=e467]: vizzical/appto-server
+            - generic [ref=e468]: private
+            - button "watch" [ref=e469] [cursor=pointer]
+    - button "+ connect GitHub account" [ref=e471] [cursor=pointer]

@@ -1,0 +1,29 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]: ralph
+    - generic [ref=e7]:
+      - generic [ref=e8]: projects
+      - generic [ref=e9]: no projects yet
+    - button "+ new project" [ref=e11] [cursor=pointer]
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]: ⬡
+      - paragraph [ref=e15]: No agents running.
+      - paragraph [ref=e16]:
+        - text: Pick a project and hit
+        - strong [ref=e17]: run
+        - text: .
+  - generic [ref=e19]:
+    - heading "interview" [level=2] [ref=e32]
+    - generic [ref=e21]:
+      - generic [ref=e22]: project name
+      - textbox "e.g. snackbar-webshop" [ref=e23]
+    - generic [ref=e33]:
+      - generic [ref=e34]: describe your plan
+      - textbox "I want to build a dashboard that shows real-time metrics..." [ref=e35]: I want to add a dark mode toggle to Ralph
+    - generic [ref=e39]:
+      - generic [ref=e41]: I want to add a dark mode toggle to Ralph
+      - generic [ref=e43]: thinking…
+    - generic [ref=e36]:
+      - button "← back" [ref=e37] [cursor=pointer]
+      - button "start interview" [disabled] [ref=e38]

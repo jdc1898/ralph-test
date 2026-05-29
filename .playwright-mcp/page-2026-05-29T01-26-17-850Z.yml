@@ -1,0 +1,24 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]: ralph
+    - generic [ref=e7]:
+      - generic [ref=e8]: projects
+      - generic [ref=e9]: no projects yet
+    - generic [ref=e10]:
+      - button "+ new project" [ref=e11] [cursor=pointer]
+      - button "GitHub" [active] [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: ⬡
+      - paragraph [ref=e16]: No agents running.
+      - paragraph [ref=e17]:
+        - text: Pick a project and hit
+        - strong [ref=e18]: run
+        - text: .
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - heading "GitHub" [level=2] [ref=e22]
+      - button "✕" [ref=e23] [cursor=pointer]
+    - paragraph [ref=e25]: No GitHub accounts connected.
+    - link "+ connect GitHub account" [ref=e27] [cursor=pointer]:
+      - /url: /api/auth/github

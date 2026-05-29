@@ -1,0 +1,9 @@
+[  125951ms] [WARNING] [Vue warn]: Property "collapsed" was accessed during render but is not defined on instance. 
+  at <AgentPanel key="44d5d2b2-5073-4d79-9513-f2a58e93b8b7" agent= {id: 44d5d2b2-5073-4d79-9513-f2a58e93b8b7, projectId: jdc1898-ralph-test-2, projectName: jdc1898 ralph test 2, status: running, iteration: 1} onStop=fn<stopAgent>  ... > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=2967c02d:2224
+[  125951ms] [WARNING] [Vue warn]: Property "collapsed" was accessed during render but is not defined on instance. 
+  at <AgentPanel key="44d5d2b2-5073-4d79-9513-f2a58e93b8b7" agent= {id: 44d5d2b2-5073-4d79-9513-f2a58e93b8b7, projectId: jdc1898-ralph-test-2, projectName: jdc1898 ralph test 2, status: running, iteration: 1} onStop=fn<stopAgent>  ... > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=2967c02d:2224
+[  125951ms] [WARNING] [Vue warn]: Property "collapsed" was accessed during render but is not defined on instance. 
+  at <AgentPanel key="44d5d2b2-5073-4d79-9513-f2a58e93b8b7" agent= {id: 44d5d2b2-5073-4d79-9513-f2a58e93b8b7, projectId: jdc1898-ralph-test-2, projectName: jdc1898 ralph test 2, status: running, iteration: 1} onStop=fn<stopAgent>  ... > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=2967c02d:2224

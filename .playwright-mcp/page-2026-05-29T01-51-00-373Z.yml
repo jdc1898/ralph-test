@@ -1,0 +1,22 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]: ralph
+    - generic [ref=e7]:
+      - generic [ref=e8]: projects
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]: jdc1898 ralph test 2
+          - generic [ref=e22]: backlog
+        - generic [ref=e23]: 2/2 tasks
+    - generic [ref=e10]:
+      - button "+ new project" [ref=e11] [cursor=pointer]
+      - button "GitHub" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - generic [ref=e27] [cursor=pointer]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: ›
+        - generic [ref=e30]: jdc1898 ralph test 2
+        - generic [ref=e31]: running
+      - generic [ref=e32]:
+        - generic [ref=e33]: iter 1/30
+        - button "stop" [ref=e34]
