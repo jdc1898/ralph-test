@@ -14,3 +14,11 @@ test('authenticated users can visit the dashboard', function () {
     $response = $this->get(route('dashboard'));
     $response->assertOk();
 });
+
+test('dashboard includes the activity log component', function () {
+    $user = User::factory()->create();
+    $this->actingAs($user);
+
+    $response = $this->get(route('dashboard'));
+    $response->assertSeeLivewire('activity-log');
+});
