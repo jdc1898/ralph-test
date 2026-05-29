@@ -1,0 +1,30 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e5]: ralph
+    - generic [ref=e7]:
+      - generic [ref=e8]: projects
+      - generic [ref=e9]: no projects yet
+    - button "+ new project" [active] [ref=e11] [cursor=pointer]
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]: ⬡
+      - paragraph [ref=e15]: No agents running.
+      - paragraph [ref=e16]:
+        - text: Pick a project and hit
+        - strong [ref=e17]: run
+        - text: .
+  - generic [ref=e19]:
+    - heading "new project" [level=2] [ref=e20]
+    - generic [ref=e21]:
+      - generic [ref=e22]: project name
+      - textbox "e.g. snackbar-webshop" [ref=e23]
+    - generic [ref=e24]:
+      - generic [ref=e25]: tasks (one per line)
+      - textbox "Set up Vue 3 project with Vite Create a homepage layout Add dark mode toggle" [ref=e26]:
+        - /placeholder: "Set up Vue 3 project with Vite\nCreate a homepage layout\nAdd dark mode toggle"
+    - generic [ref=e27]:
+      - text: not sure what tasks to add?
+      - button "grill me instead" [ref=e28] [cursor=pointer]
+    - generic [ref=e29]:
+      - button "cancel" [ref=e30] [cursor=pointer]
+      - button "create project" [disabled] [ref=e31]

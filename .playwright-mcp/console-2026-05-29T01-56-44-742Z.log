@@ -1,0 +1,6 @@
+[  448629ms] [WARNING] [Vue warn]: Property "stats" was accessed during render but is not defined on instance. 
+  at <AgentPanel key="fba4d350-3ab0-41d9-8b1a-0f1e36dc51bf" agent= {id: fba4d350-3ab0-41d9-8b1a-0f1e36dc51bf, projectId: jdc1898-ralph-test-2, projectName: jdc1898 ralph test 2, githubSource: Object, status: complete} onStop=fn<stopAgent>  ... > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=2967c02d:2224
+[  448629ms] [WARNING] [Vue warn]: Property "stats" was accessed during render but is not defined on instance. 
+  at <AgentPanel key="3a26bad0-8f1a-4960-a884-06fe78cc3872" agent= {id: 3a26bad0-8f1a-4960-a884-06fe78cc3872, projectId: jdc1898-ralph-test-2, projectName: jdc1898 ralph test 2, githubSource: Object, status: complete} onStop=fn<stopAgent>  ... > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=2967c02d:2224

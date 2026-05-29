@@ -1,0 +1,101 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --surface-2: #1a1a1a;
+  --border: #222222;
+  --text: #e0e0e0;
+  --text-dim: #555555;
+  --text-muted: #888888;
+  --green: #22c55e;
+  --yellow: #f59e0b;
+  --blue: #3b82f6;
+  --red: #ef4444;
+  --purple: #a855f7;
+  font-family: 'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  height: 100dvh;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+button:hover { background: #252525; border-color: #333; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+button.primary {
+  background: var(--green);
+  border-color: var(--green);
+  color: #000;
+  font-weight: 600;
+}
+button.primary:hover { background: #16a34a; border-color: #16a34a; }
+
+button.danger {
+  background: transparent;
+  border-color: var(--red);
+  color: var(--red);
+}
+button.danger:hover { background: rgba(239,68,68,0.1); }
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+}
+input:focus, textarea:focus { border-color: #444; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge.running {
+  background: rgba(34,197,94,0.15);
+  color: var(--green);
+  animation: pulse-running 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-running {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.badge.complete { background: rgba(59,130,246,0.15); color: var(--blue); }
+.badge.stopped { background: rgba(136,136,136,0.15); color: var(--text-muted); }
+.badge.idle { background: rgba(136,136,136,0.1); color: var(--text-dim); }
+.badge.backlog { background: rgba(245,158,11,0.15); color: var(--yellow); }
+.badge.done { background: rgba(34,197,94,0.15); color: var(--green); }

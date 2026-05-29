@@ -1,0 +1,7 @@
+[  295359ms] [ERROR] WebSocket connection to 'ws://localhost:5173/ws' failed: Connection closed before receiving a handshake response @ http://localhost:5173/src/composables/useRalph.js:11
+[  317216ms] [WARNING] [Vue warn]: Property "connecting" was accessed during render but is not defined on instance. 
+  at <GitHubPanel key=1 onClose=fn > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=96b09004:2224
+[  317216ms] [WARNING] [Vue warn]: Property "connecting" was accessed during render but is not defined on instance. 
+  at <GitHubPanel key=1 onClose=fn > 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/vue.js?v=96b09004:2224
