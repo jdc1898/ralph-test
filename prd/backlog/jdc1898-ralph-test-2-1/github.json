@@ -1,0 +1,11 @@
+{
+  "accountId": 3174628,
+  "repoFullName": "jdc1898/ralph-test-2",
+  "owner": "jdc1898",
+  "repoName": "ralph-test-2",
+  "issueNumber": 1,
+  "issueId": 4545396875,
+  "issueTitle": "Create a static HTML landing page",
+  "issueBody": "## Summary\nCreate a single-page static HTML landing page for a fictional SaaS product called \"Beacon\".\n\n## Requirements\n- Create `index.html` at the root of the repository\n- Create `style.css` at the root with all styles (no frameworks, plain CSS only)\n- The page must include:\n  - A top navigation bar with the logo text \"Beacon\" on the left and a \"Get started\" button on the right\n  - A hero section with the headline \"Ship faster. Break less.\" and a subheading \"Beacon monitors your deploys and alerts your team in real time.\" plus a primary CTA button \"Start free trial\"\n  - A features section with 3 cards: \"Instant alerts\" (description: Get notified in Slack, email, or SMS within seconds of a failed deploy), \"Deploy history\" (description: Every deploy logged with diffs, duration, and who triggered it), \"Team dashboards\" (description: One place for your whole team to see what shipped and when)\n  - A footer with copyright text \"© 2026 Beacon. All rights reserved.\"\n- Color scheme: dark navy background (`#0f172a`), white text, accent color `#6366f1` (indigo) for buttons and highlights\n- The page must be responsive (mobile-friendly using CSS media queries)\n- No JavaScript required",
+  "issueUrl": "https://github.com/jdc1898/ralph-test-2/issues/1"
+}
