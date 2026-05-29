@@ -33,6 +33,7 @@
       <div v-if="errMsg" class="err">{{ errMsg }}</div>
 
       <div class="actions">
+        <button class="danger" :disabled="rejecting" @click="reject">reject</button>
         <button @click="$emit('close')">cancel</button>
         <button v-if="!done && !loading" class="primary" :disabled="!replyText.trim()" @click="sendReply">send</button>
       </div>
@@ -54,6 +55,7 @@ const sessionId = ref(null)
 const loading = ref(false)
 const done = ref(false)
 const errMsg = ref('')
+const rejecting = ref(false)
 const chatEl = ref(null)
 
 onMounted(beginInterview)
@@ -120,6 +122,19 @@ async function sendReply() {
   } finally {
     loading.value = false
     await scrollDown()
+  }
+}
+
+async function reject() {
+  rejecting.value = true
+  try {
+    await fetch(`/api/projects/${props.project.id}`, { method: 'DELETE' })
+    if (sessionId.value) fetch(`/api/interview/${sessionId.value}`, { method: 'DELETE' }).catch(() => {})
+    emit('close')
+  } catch (e) {
+    errMsg.value = e.message
+  } finally {
+    rejecting.value = false
   }
 }
 

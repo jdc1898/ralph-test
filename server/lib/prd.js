@@ -153,6 +153,36 @@ export async function promotePendingProject(id, tasks) {
   }
 }
 
+export async function deleteProject(id) {
+  for (const status of ['backlog', 'done', 'pending']) {
+    const dir = join(ROOT, status, id)
+    if (existsSync(dir)) {
+      await rm(dir, { recursive: true })
+      return
+    }
+  }
+  throw new Error('Project not found')
+}
+
+export async function deleteProjectsByRepo(repoFullName) {
+  for (const status of ['backlog', 'done', 'pending']) {
+    const dir = join(ROOT, status)
+    if (!existsSync(dir)) continue
+    const entries = await readdir(dir, { withFileTypes: true }).catch(() => [])
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue
+      const file = join(dir, entry.name, 'github.json')
+      if (!existsSync(file)) continue
+      try {
+        const data = JSON.parse(await readFile(file, 'utf8'))
+        if (data.repoFullName === repoFullName) {
+          await rm(join(dir, entry.name), { recursive: true })
+        }
+      } catch {}
+    }
+  }
+}
+
 export async function isIssueTracked(repoFullName, issueNumber) {
   for (const status of ['backlog', 'done', 'pending']) {
     const dir = join(ROOT, status)

@@ -34,9 +34,13 @@ async function processRepo(account, repo, broadcast, onAutoStart) {
   const [owner, repoName] = repo.fullName.split('/')
   const issues = await getOpenIssuesWithLabel(account.token, owner, repoName, 'todo')
 
+  const newIssues = []
   for (const issue of issues) {
     if (await isIssueTracked(repo.fullName, issue.number)) continue
+    newIssues.push(issue)
+  }
 
+  await Promise.allSettled(newIssues.map(async issue => {
     console.log(`[poller] New todo issue: ${repo.fullName}#${issue.number} — ${issue.title}`)
 
     const githubSource = {
@@ -61,5 +65,5 @@ async function processRepo(account, repo, broadcast, onAutoStart) {
       broadcast({ type: 'projects:refresh' })
       onAutoStart(project)
     }
-  }
+  }))
 }

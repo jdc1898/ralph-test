@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from 'fs/promises'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { removeRepo } from './repos.js'
 
 const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../data')
 const FILE = join(DATA_DIR, 'github-accounts.json')
@@ -57,4 +58,5 @@ export async function unwatchRepo(accountId, repoFullName) {
     account.watchedRepos = (account.watchedRepos ?? []).filter(r => r.fullName !== repoFullName)
   }
   await save(accounts)
+  removeRepo(repoFullName).catch(e => console.error(`[repos] remove failed for ${repoFullName}:`, e.message))
 }

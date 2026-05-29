@@ -102,6 +102,14 @@ export function useRalph() {
   }
 
   function dismissAgent(agentId) {
+    const agent = agents[agentId]
+    if (agent?.githubSource) {
+      fetch('/api/dismiss', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ githubSource: agent.githubSource }),
+      }).catch(() => {})
+    }
     delete agents[agentId]
   }
 

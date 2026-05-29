@@ -15,9 +15,10 @@
         :class="{ active: activeAgentForProject(p.id) }"
       >
         <div class="project-info">
-          <span class="project-name">{{ p.name }}</span>
+          <span v-if="p.githubSource" class="repo-badge">{{ p.githubSource.repoFullName }}</span>
           <span class="badge" :class="p.status">{{ p.status }}</span>
         </div>
+        <div class="project-name">{{ p.githubSource?.issueTitle ?? p.name }}</div>
         <div class="project-tasks">
           {{ completedTasks(p) }}/{{ p.tasks.length }} tasks
         </div>
@@ -28,19 +29,25 @@
         >
           review
         </button>
-        <button
-          v-else-if="p.status === 'backlog' && !activeAgentForProject(p.id)"
-          class="primary run-btn"
-          @click="startAgent(p.id)"
-        >
-          run
-        </button>
+        <div v-else-if="p.status === 'backlog'" class="project-actions">
+          <button
+            v-if="agentForProject(p.id)"
+            class="view-btn"
+            @click="viewProject(p.id)"
+          >view</button>
+          <button
+            v-if="!activeAgentForProject(p.id)"
+            class="primary run-btn"
+            :disabled="repoIsRunning(p)"
+            @click="startAgent(p.id)"
+          >{{ repoIsRunning(p) ? 'queued' : 'run' }}</button>
+        </div>
       </div>
     </div>
 
     <div class="sidebar-footer">
-      <button class="primary" @click="showNewProject = true">+ new project</button>
-      <button class="github-btn" @click="showGitHub = true">GitHub</button>
+      <!-- <button class="primary" @click="showNewProject = true">+ new project</button> -->
+      <button class="github-btn" @click="showGitHub = true">Repositories</button>
     </div>
   </aside>
 
@@ -55,6 +62,7 @@
       <AgentPanel
         v-for="agent in agentList"
         :key="agent.id"
+        :id="`agent-${agent.id}`"
         :agent="agent"
         @stop="stopAgent"
         @dismiss="dismissAgent"
@@ -97,16 +105,33 @@ const pendingProject = ref(null)
 
 const agentList = computed(() => Object.values(agents))
 
-const visibleProjects = computed(() =>
-  projects.value.filter(p => !Object.values(agents).some(a => a.projectId === p.id))
-)
+const visibleProjects = computed(() => projects.value)
+
+function agentForProject(projectId) {
+  return Object.values(agents).find(a => a.projectId === projectId)
+}
 
 function activeAgentForProject(projectId) {
   return Object.values(agents).find(a => a.projectId === projectId && a.status === 'running')
 }
 
+function repoIsRunning(project) {
+  const repo = project.githubSource?.repoFullName
+  if (!repo) return false
+  return Object.values(agents).some(
+    a => a.githubSource?.repoFullName === repo && a.status === 'running'
+  )
+}
+
 function completedTasks(project) {
   return project.tasks.filter(t => t.done).length
+}
+
+function viewProject(projectId) {
+  const agent = agentForProject(projectId)
+  if (agent) {
+    document.getElementById(`agent-${agent.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }
 }
 </script>
 
@@ -178,6 +203,18 @@ function completedTasks(project) {
   display: flex;
   align-items: center;
   gap: 6px;
+  justify-content: space-between;
+}
+
+.repo-badge {
+  font-size: 10px;
+  color: #aaa;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-name {
@@ -187,11 +224,17 @@ function completedTasks(project) {
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 1;
+  min-width: 0;
 }
 
 .project-tasks { font-size: 11px; color: var(--text-dim); }
 
-.run-btn { margin-top: 4px; font-size: 11px; padding: 2px 8px; }
+.project-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+.view-btn, .run-btn { flex: 1; font-size: 11px; padding: 2px 8px; }
 
 .review-btn {
   margin-top: 4px;

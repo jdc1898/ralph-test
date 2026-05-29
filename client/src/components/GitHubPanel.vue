@@ -39,15 +39,21 @@
                 :key="repo.fullName"
                 class="repo-row"
               >
-                <span class="repo-name">{{ repo.fullName }}</span>
-                <span v-if="repo.private" class="private-badge">private</span>
-                <button
-                  class="small"
-                  :class="isWatched(account, repo) ? 'danger' : 'primary'"
-                  @click="toggleWatch(account, repo)"
-                >
-                  {{ isWatched(account, repo) ? 'unwatch' : 'watch' }}
-                </button>
+                <div class="repo-row-main">
+                  <span class="repo-name">{{ repo.fullName }}</span>
+                  <span v-if="repo.private" class="private-badge">private</span>
+                  <button
+                    class="small"
+                    :class="isWatched(account, repo) ? 'danger' : 'primary'"
+                    :disabled="cloningRepos.has(repo.fullName)"
+                    @click="toggleWatch(account, repo)"
+                  >
+                    {{ cloningRepos.has(repo.fullName) ? 'cloning…' : isWatched(account, repo) ? 'unwatch' : 'watch' }}
+                  </button>
+                </div>
+                <div v-if="cloningRepos.has(repo.fullName)" class="clone-progress">
+                  <div class="clone-progress-bar"></div>
+                </div>
               </div>
               <div v-if="!filteredRepos(account.id).length" class="state-msg">no repos found</div>
             </div>
@@ -73,9 +79,17 @@ const accounts = ref([])
 const repoMap = ref({})
 const repoLoading = ref({})
 const repoSearch = ref({})
+const cloningRepos = ref(new Set())
 const loading = ref(true)
 const connecting = ref(false)
 const error = ref('')
+
+function setCloning(fullName, value) {
+  const next = new Set(cloningRepos.value)
+  if (value) next.add(fullName)
+  else next.delete(fullName)
+  cloningRepos.value = next
+}
 
 function filteredRepos(accountId) {
   const repos = repoMap.value[accountId] ?? []
@@ -135,12 +149,17 @@ function isWatched(account, repo) {
 async function toggleWatch(account, repo) {
   const watched = isWatched(account, repo)
   const url = `/api/accounts/${account.id}/repos/watch`
-  await fetch(url, {
-    method: watched ? 'DELETE' : 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ fullName: repo.fullName, name: repo.name }),
-  })
-  await loadAccounts()
+  if (!watched) setCloning(repo.fullName, true)
+  try {
+    await fetch(url, {
+      method: watched ? 'DELETE' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fullName: repo.fullName, name: repo.name }),
+    })
+    await loadAccounts()
+  } finally {
+    setCloning(repo.fullName, false)
+  }
 }
 
 async function disconnect(accountId) {
@@ -245,9 +264,35 @@ h2 { font-size: 15px; font-weight: 600; color: var(--text); }
 
 .repo-row {
   display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.repo-row-main {
+  display: flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 0;
+}
+
+.clone-progress {
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.clone-progress-bar {
+  height: 100%;
+  width: 40%;
+  background: var(--green);
+  border-radius: 1px;
+  animation: clone-slide 1.4s ease-in-out infinite;
+}
+
+@keyframes clone-slide {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
 }
 
 .repo-name { font-size: 12px; color: var(--text); flex: 1; }

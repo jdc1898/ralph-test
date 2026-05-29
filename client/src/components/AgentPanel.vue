@@ -16,7 +16,7 @@
         <button v-if="agent.status === 'running'" class="danger" @click="$emit('stop', agent.id)">
           stop
         </button>
-        <button v-else @click="$emit('dismiss', agent.id)">dismiss</button>
+        <button v-else-if="!agent.prUrl" @click="$emit('dismiss', agent.id)">dismiss</button>
       </div>
     </div>
 
@@ -161,7 +161,7 @@ watch(
 .log-area {
   flex: 1;
   overflow-y: auto;
-  padding: 10px 12px;
+  padding: 8px 8px;
   display: flex;
   flex-direction: column;
   gap: 1px;

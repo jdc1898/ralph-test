@@ -1,11 +1,12 @@
 import express from 'express'
 import { createServer } from 'http'
 import { WebSocketServer } from 'ws'
-import { listProjects, createProject, promotePendingProject } from './lib/prd.js'
-import { startAgent, stopAgent } from './lib/agent.js'
+import { listProjects, createProject, promotePendingProject, deleteProject, deleteProjectsByRepo } from './lib/prd.js'
+import { startAgent, stopAgent, isRepoRunning } from './lib/agent.js'
 import { createInterview, continueInterview, destroyInterview } from './lib/interview.js'
 import { getAccounts, upsertAccount, removeAccount, watchRepo, unwatchRepo } from './lib/accounts.js'
-import { getGhToken, ghLogin, getUser, listRepos, updateIssueBody, addLabel, removeLabel } from './lib/github.js'
+import { getGhToken, ghLogin, getUser, listRepos, updateIssueBody, addLabel, removeLabel, closeIssue } from './lib/github.js'
+import { ensureRepo } from './lib/repos.js'
 import { startPoller } from './lib/poller.js'
 
 const app = express()
@@ -56,10 +57,45 @@ app.post('/api/projects/:id/promote', async (req, res) => {
     }
 
     broadcast({ type: 'projects:refresh' })
-    startAgent(project, broadcast)
+    if (!isRepoRunning(project.githubSource?.repoFullName)) {
+      startAgent(project, broadcast)
+    }
     res.json(project)
   } catch (e) {
     res.status(500).json({ error: String(e.message) })
+  }
+})
+
+app.delete('/api/projects/:id', async (req, res) => {
+  try {
+    const projects = await listProjects()
+    const project = projects.find(p => p.id === req.params.id)
+    await deleteProject(req.params.id)
+    if (project?.githubSource) {
+      const { accountId, owner, repoName, issueNumber } = project.githubSource
+      const accounts = await getAccounts()
+      const account = accounts.find(a => String(a.id) === String(accountId))
+      if (account) closeIssue(account.token, owner, repoName, issueNumber).catch(() => {})
+    }
+    broadcast({ type: 'projects:refresh' })
+    res.sendStatus(204)
+  } catch (e) {
+    res.status(500).json({ error: e.message })
+  }
+})
+
+app.post('/api/dismiss', async (req, res) => {
+  const { githubSource } = req.body
+  if (!githubSource) return res.sendStatus(204)
+  try {
+    const { accountId, owner, repoName, issueNumber } = githubSource
+    const accounts = await getAccounts()
+    const account = accounts.find(a => String(a.id) === String(accountId))
+    if (!account) return res.sendStatus(204)
+    await closeIssue(account.token, owner, repoName, issueNumber)
+    res.sendStatus(204)
+  } catch (e) {
+    res.status(500).json({ error: e.message })
   }
 })
 
@@ -141,6 +177,7 @@ app.post('/api/accounts/:id/repos/watch', async (req, res) => {
   const { fullName, name } = req.body
   try {
     await watchRepo(req.params.id, { fullName, name })
+    await ensureRepo(fullName)
     res.json({ ok: true })
   } catch (e) {
     res.status(500).json({ error: e.message })
@@ -151,6 +188,8 @@ app.delete('/api/accounts/:id/repos/watch', async (req, res) => {
   const { fullName } = req.body
   try {
     await unwatchRepo(req.params.id, fullName)
+    await deleteProjectsByRepo(fullName)
+    broadcast({ type: 'projects:refresh' })
     res.json({ ok: true })
   } catch (e) {
     res.status(500).json({ error: e.message })
@@ -169,7 +208,9 @@ wss.on('connection', async ws => {
     if (msg.type === 'start') {
       const projects = await listProjects()
       const project = projects.find(p => p.id === msg.projectId)
-      if (project) startAgent(project, broadcast)
+      if (project && !isRepoRunning(project.githubSource?.repoFullName)) {
+        startAgent(project, broadcast)
+      }
     }
 
     if (msg.type === 'stop') {
@@ -181,7 +222,9 @@ wss.on('connection', async ws => {
 // ─── Start ────────────────────────────────────────────────────────────────────
 
 function autoStart(project) {
-  startAgent(project, broadcast)
+  if (!isRepoRunning(project.githubSource?.repoFullName)) {
+    startAgent(project, broadcast)
+  }
 }
 
 startPoller(broadcast, autoStart)

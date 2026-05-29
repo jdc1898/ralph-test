@@ -86,6 +86,14 @@ export async function addLabel(token, owner, repo, number, label) {
   })
 }
 
+export async function closeIssue(token, owner, repo, number) {
+  return ghFetch(token, `/repos/${owner}/${repo}/issues/${number}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ state: 'closed' }),
+  })
+}
+
 export async function removeLabel(token, owner, repo, number, label) {
   const res = await fetch(`${BASE}/repos/${owner}/${repo}/issues/${number}/labels/${encodeURIComponent(label)}`, {
     method: 'DELETE',
