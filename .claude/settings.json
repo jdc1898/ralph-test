@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Read(.env*)",
+      "Bash(rm -rf *)"
+    ],
+    "defaultMode": "acceptAll"
+  },
+  "sandbox": false
+}
