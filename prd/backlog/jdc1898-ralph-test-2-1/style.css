@@ -112,3 +112,11 @@ a {
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
 }
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.45);
+}
