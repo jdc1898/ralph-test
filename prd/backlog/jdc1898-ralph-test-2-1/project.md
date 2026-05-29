@@ -8,4 +8,4 @@
 - [x] Implement hero section with headline "Ship faster. Break less.", subheading "Beacon monitors your deploys and alerts your team in real time.", and "Start free trial" CTA button
 - [x] Implement features section with three cards: "Instant alerts", "Deploy history", and "Team dashboards" with their specified descriptions
 - [x] Implement footer with "© 2026 Beacon. All rights reserved."
-- [ ] Add CSS media queries to make the layout responsive for mobile viewports
+- [x] Add CSS media queries to make the layout responsive for mobile viewports

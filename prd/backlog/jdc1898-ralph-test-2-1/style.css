@@ -120,3 +120,21 @@ a {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.45);
 }
+
+@media (max-width: 48rem) {
+  .nav {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 3.5rem 1rem 3rem;
+  }
+
+  .features {
+    padding: 3rem 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
