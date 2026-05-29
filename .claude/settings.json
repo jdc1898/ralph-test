@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npm run build)",
+      "Bash(* --version)",
+      "Bash(* --help *)",
+      "Bash(ls*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Read(//tmp/**)"
+    ],
+    "deny": [
+      "Read(.env*)",
+      "Bash(rm *)",
+      "Bash(git rm *)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": true,
+    "network": {
+      "allowedDomains": [
+        "laracasts.com"
+      ]
+    },
+    "filesystem": {
+      "allowWrite": [
+        "~/.fastlane"
+      ],
+      "denyWrite": [
+        "./.github"
+      ],
+      "denyRead": [
+        "~/.aws/credentials"
+      ]
+    },
+    "excludedCommands": [
+      "docker"
+    ]
+  }
+}
