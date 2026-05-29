@@ -1,1 +1,2 @@
 Created `app/Livewire/ActivityLog.php` class-based Livewire component with 10 hardcoded activity entries (timestamps, descriptions, and types: login/update/delete) and a corresponding Pest feature test in `tests/Feature/ActivityLogTest.php`.
+Created `resources/views/livewire/activity-log.blade.php` with a "Recent Activity" heading and a divided list of all 10 entries; each entry shows a color-coded `flux:badge` (green for login, blue for update, red for delete), the description, and the timestamp.
