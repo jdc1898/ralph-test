@@ -3,4 +3,4 @@
 ## Tasks
 
 - [x] Change the dashboard page background color to dark navy (e.g. Tailwind `bg-navy-900` or `bg-blue-950`)
-- [ ] Update the dashboard page title text to read "Welcome"
+- [x] Update the dashboard page title text to read "Welcome"
