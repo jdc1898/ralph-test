@@ -1,0 +1,1 @@
+Created `app/Livewire/ActivityLog.php` class-based Livewire component with 10 hardcoded activity entries (timestamps, descriptions, and types: login/update/delete) and a corresponding Pest feature test in `tests/Feature/ActivityLogTest.php`.
